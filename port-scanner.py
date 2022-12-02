@@ -7,6 +7,7 @@ ascii_banner = pyfiglet.figlet_format("PORT SCANNER")
 print(ascii_banner)
 
 target = input(str('Target ip: '))
+#needs to be fixed to allow only nums in range#
 portStart = input(str('PORT RANGE Starting Port# (Min 1, Max 65535): '))
 portEnd = input(str('PORT RANGE Ending Port# (Min 1, Max 65535): '))
 
