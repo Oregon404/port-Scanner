@@ -4,13 +4,29 @@ import socket
 from datetime import datetime
 
 ascii_banner = pyfiglet.figlet_format("PORT SCANNER")
+endBanner = pyfiglet.figlet_format("END OF SCAN 07")
 print(ascii_banner)
 
 target = input(str('Target ip: '))
-#needs to be fixed to allow only nums in range#
-portStart = input(str('PORT RANGE Starting Port# (Min 1, Max 65535): '))
-portEnd = input(str('PORT RANGE Ending Port# (Min 1, Max 65535): '))
+portStart = 0
+portEnd = 0
+rawInput = 0
 
+while rawInput < 1 or rawInput > 65535:
+    portStart = input(str('PORT RANGE Starting Port# (Min 1, Max 65535): '))
+    rawInput = int(portStart)
+    if rawInput >= 1 and rawInput <= 65535:
+        portStart = rawInput
+        rawInput = 0
+        break
+
+while rawInput < portStart  or rawInput > 65535:
+    portEnd = input(str('PORT RANGE Ending Port# (Min ' + str(portStart) + ', Max 65535): '))
+    rawInput = int(portEnd)
+    if rawInput >= portStart and rawInput <= 65535:
+        portEnd = rawInput + 1
+        rawInput = 0
+        break
 
 ##Banner##
 print("*" * 50)
@@ -46,4 +62,4 @@ except socket.error:
 
 else:
     #print("End of scan 07")##
-    print(pyfiglet.figlet_format("END OF SCAN 07"))
+    print(endBanner)
