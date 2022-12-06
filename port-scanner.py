@@ -12,6 +12,7 @@ portStart = 0
 portEnd = 0
 rawInput = 0
 
+# Ensures only valid port numbers are entered
 while rawInput < 1 or rawInput > 65535:
     portStart = input(str('PORT RANGE Starting Port# (Min 1, Max 65535): '))
     rawInput = int(portStart)
@@ -20,6 +21,7 @@ while rawInput < 1 or rawInput > 65535:
         rawInput = 0
         break
 
+# Ensures only valid port numbers are entered
 while rawInput < portStart  or rawInput > 65535:
     portEnd = input(str('PORT RANGE Ending Port# (Min ' + str(portStart) + ', Max 65535): '))
     rawInput = int(portEnd)
